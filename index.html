@@ -65,11 +65,9 @@ main{position:relative}
 #numB{font-size:19vh;left:var(--side);top:17vh}
 #porA{width:60vh;height:50vh;left:50%;top:40vh;transform:translateX(-50%)}
 #porB{left:35vw;top:15vh;width:min(calc(68vh*4/3),58vw);height:min(68vh,calc(58vw*3/4))}
-.snd{position:absolute;right:14px;bottom:14px;z-index:3;font:700 11px/1 "Open Sans",sans-serif;letter-spacing:.08em;text-transform:uppercase;background:#fff;color:#0a0a0a;border:0;border-radius:99px;padding:8px 12px;cursor:pointer;opacity:0;transition:opacity .4s}
-#tPor.big .snd{opacity:1}
 .trav{position:absolute;left:0;top:0;will-change:transform}
 #tNum{z-index:1;transform-origin:0 0}
-#tPor{z-index:2;box-shadow:0 30px 60px rgba(0,0,0,.06)}
+#tPor{z-index:2;box-shadow:0 30px 60px rgba(0,0,0,.06);border-radius:12px;overflow:hidden}
 .lA,.lB{z-index:3}
 .lA .quote{position:absolute;left:var(--side);top:50%;transform:translateY(-38%);font-size:clamp(26px,2.5vw,44px);line-height:1.08}
 .lA .quote .ind{padding-left:1.1em}
@@ -160,17 +158,17 @@ main{position:relative}
 .fanS{position:relative}
 .fanS .pin{z-index:1}
 .fan-txt{position:absolute;left:var(--side);top:var(--top);bottom:var(--bot);width:30vw;display:flex;flex-direction:column;justify-content:center;z-index:2}
-.fan-txt h2{font-size:clamp(56px,6.6vw,112px);line-height:.9;letter-spacing:-0.05em;margin-top:2.5vh}
+.fan-txt h2{font-size:clamp(56px,6.6vw,112px);line-height:.9;letter-spacing:-0.05em}
 .fmt{display:flex;gap:44px;margin-top:9vh}
 .fmt div{opacity:.25;transition:opacity .5s}
 .fmt div.on{opacity:1}
 .fmt strong{display:block;font-size:clamp(44px,4.6vw,76px);font-weight:800;letter-spacing:-0.05em;line-height:1}
 .fmt span{display:block;font-size:15px;font-weight:600;margin-top:8px}
 .fan{position:absolute;left:36vw;right:0;top:0;bottom:0;perspective:1600px;overflow:hidden;transition:opacity .6s;opacity:0;pointer-events:none}
-.fan.on{opacity:1}
+.fan.on{opacity:1;pointer-events:auto}
 .fc{position:absolute;left:50%;top:50%;border-radius:18px;overflow:hidden;background:#ddd;box-shadow:0 30px 60px rgba(0,0,0,.18);will-change:transform}
 .fan.v .fc{width:30vh;height:53.3vh;margin:-26.65vh 0 0 -15vh}
-.fan.h .fc{width:30vw;height:16.875vw;margin:-8.44vw 0 0 -15vw}
+.fan.h .fc{width:34vw;height:19.125vw;margin:-9.5625vw 0 0 -17vw}
 .fc video{width:100%;height:100%;object-fit:cover;display:block}
 
 /* ---- part 02 key frame ---- */
@@ -214,7 +212,7 @@ main{position:relative}
 .s-state .st-center h2{font-size:clamp(34px,3.6vw,64px);line-height:1.02;letter-spacing:-0.035em;margin-top:3vh}
 .s-state .img.media video{opacity:1}
 .s-proc .ph-head{position:absolute;left:var(--side);top:var(--top)}
-.s-proc .ph-head h2{font-size:clamp(22px,1.9vw,32px);margin-top:1.4vh}
+.s-proc .ph-head h2{font-size:clamp(22px,1.9vw,32px)}
 .s-proc .foot-c{position:absolute;left:0;right:0;top:36vh;text-align:center;font-size:clamp(26px,2.9vw,50px);line-height:1.12;letter-spacing:-0.03em}
 .ruler{position:absolute;left:var(--side);right:calc(var(--side) + 30px);bottom:calc(var(--bot) + 30px);border-top:1px solid var(--ink)}
 .ruler .ticks{height:14px;background:repeating-linear-gradient(90deg,var(--ink) 0 1px,transparent 1px 64px) top/100% 14px no-repeat,repeating-linear-gradient(90deg,#9a9a9a 0 1px,transparent 1px 16px) top/100% 7px no-repeat}
@@ -226,7 +224,7 @@ main{position:relative}
 .ruler .playhead{position:absolute;top:-10px;bottom:0;left:calc(var(--e,0)*100%);width:1px;background:var(--ink)}
 .ruler .playhead::before{content:"";position:absolute;left:-5px;top:0;border:5px solid transparent;border-top:7px solid var(--ink)}
 .part .img.endc{background:#05060d;overflow:hidden}
-.part .img.endc img{width:100%;height:100%;object-fit:cover;display:block}
+@media (min-width:761px){#exec .img.endc{width:26vw;position:absolute;background:#010208}#exec .img.endc video{position:absolute;left:50%;top:50%;width:140%;height:auto;max-height:none;transform:translate(-50%,-50%)}#exec .txt{left:calc(26vw + 8vw);width:44vw}}.part .img.endc img,.part .img.endc video{width:100%;height:100%;object-fit:cover;display:block}
 .huge{font-size:clamp(64px,8.4vw,150px);line-height:.86;letter-spacing:-0.055em}
 .lead2{font-size:clamp(18px,1.6vw,26px);font-weight:600;letter-spacing:-0.015em;margin-top:2.4vh;line-height:1.3}
 .s-dir .txt .huge{margin-top:1.4vh}
@@ -245,8 +243,9 @@ main{position:relative}
 .s-lead2 .huge{margin-top:2vh}
 .s-lead2 .lead-p{max-width:60ch;margin-top:2.4vh}
 .cv{display:inline-block;will-change:transform;transform:translate(calc(var(--dx,0px)*(1 - var(--k,1))),calc(var(--dy,0px)*(1 - var(--k,1)))) rotate(calc(var(--r,0deg)*(1 - var(--k,1))));opacity:calc(.08 + var(--k,1)*.92)}
-.s-lead2 .roles{display:flex;gap:10px;margin-top:4vh;flex-wrap:wrap;justify-content:center}
-.s-lead2 .roles .cv{border:1px solid var(--ink);border-radius:99px;padding:5px 14px;font-size:12px;font-weight:700}
+.s-lead2 .roles{display:flex;gap:0;margin-top:4vh;flex-wrap:wrap;justify-content:center;row-gap:10px}
+.s-lead2 .roles .cv{padding:2px 18px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.14em;line-height:1}
+.s-lead2 .roles .cv+.cv{box-shadow:inset 1px 0 0 currentColor}
 .s-kind h2{position:absolute;left:var(--side);top:calc(var(--top) + 4vh);font-size:clamp(48px,5.6vw,96px);letter-spacing:-0.045em;line-height:1}
 .kw{position:absolute;left:var(--side);right:calc(var(--side) + 30px);top:calc(var(--top) + 4vh + 13vh);display:grid;grid-template-columns:repeat(4,1fr);gap:1.4vw}
 .kc{position:relative;aspect-ratio:5/6;border-radius:22px;overflow:hidden;background:linear-gradient(160deg,#3a3a3a,#141414);color:#fff;padding:26px;display:flex;flex-direction:column;justify-content:space-between}
@@ -373,7 +372,6 @@ main{position:relative}
   .s-board .sb-head dl{flex-wrap:wrap;gap:12px 20px}
   .sb-grid{grid-template-columns:1fr 1fr;margin-top:24px;gap:20px 12px}
   .part .img.key{aspect-ratio:4/3}
-  .snd{opacity:1}
   .lA .avatar{height:58svh}
   .fanS .pin{position:relative;height:auto;overflow:visible}
   .fanS .inner{position:relative;inset:auto;transform:none;padding:var(--top) 0 var(--bot)}
@@ -396,6 +394,12 @@ main{position:relative}
   .rise,.rise2{transform:none;opacity:1}
   .lA .cue i{animation:none}
 }
+/* ---- player: click a film to watch it alone, with sound ---- */
+[data-full]{cursor:pointer}
+.player{position:fixed;inset:0;z-index:1000;background:rgba(5,6,10,.94);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .35s}
+.player.on{opacity:1;pointer-events:auto}
+.player video{max-width:min(92vw,1600px);max-height:86vh;width:auto;height:auto;background:#000;box-shadow:0 30px 80px rgba(0,0,0,.5)}
+.player .x{position:absolute;top:calc(18px + env(safe-area-inset-top,0px));right:calc(22px + env(safe-area-inset-right,0px));background:none;border:0;color:#fff;font:700 11px/1 "Open Sans",sans-serif;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;padding:10px}
 </style>
 </head>
 <body>
@@ -427,9 +431,8 @@ main{position:relative}
       <div class="slot" id="porB"></div>
 
       <div class="trav num" id="tNum">01</div>
-      <div class="trav media" id="tPor">
+      <div class="trav media" id="tPor" data-full="assets/story-v4.mp4">
         <video data-src="assets/story-v4.mp4" poster="assets/story-v4.jpg" muted loop playsinline preload="auto"></video>
-        <button class="snd" id="snd" type="button">Sound off</button>
       </div>
 
       <div class="layer lA" id="lA">
@@ -450,7 +453,6 @@ main{position:relative}
       <div class="layer lB" id="lB">
         <span class="deg" id="deg">°</span>
         <div class="col" id="about">
-          <p class="micro">About</p>
           <h2 class="b who-name">Brian Cao</h2>
           <p class="who-role">Marketing Director at <b>Murror</b></p>
           <p class="small quote-i">“I turn brands into stories people can feel. My strongest format is film: launch films and story videos.”</p>
@@ -459,9 +461,7 @@ main{position:relative}
             <a href="#dir" data-go="dir">Direction <span>02</span></a>
             <a href="#lead" data-go="lead">Leadership <span>03</span></a>
           </div>
-        </div>
-        <div class="cap">Murror Teaser Video</div>
-      </div>
+        </div>      </div>
     </div>
   </div>
 </section>
@@ -470,7 +470,6 @@ main{position:relative}
 <section class="slide s-state overlap" id="state" data-label="WHY<br>STORY">
   <div class="inner">
     <div class="st-center">
-      <p class="micro rise">Statement<span>How I am different</span></p>
       <h2 class="up rise"><span class="t"><span class="q">“</span>Everything looks the same.</span><br><span class="b">The story is the difference.<span class="q">”</span></span></h2>
     </div>
     <div class="img media ready"><video src="assets/motion-design.mp4" poster="assets/motion-design.jpg" muted loop playsinline autoplay preload="metadata"></video></div>
@@ -480,7 +479,6 @@ main{position:relative}
 <!-- 04 PROCESS: a timeline ruler -->
 <section class="slide s-proc" id="proc" data-label="PROCESS">
   <div class="inner">
-    <div class="ph-head rise"><p class="micro">Process<span>Four steps</span></p><h2 class="b">How a story becomes felt.</h2></div>
     <p class="foot-c rise"><span class="t"><span class="q">“</span>A product can be copied in a weekend.</span><br><span class="b">The way it makes people feel cannot.<span class="q">”</span></span></p>
     <div class="ruler rise2">
       <div class="ticks"></div>
@@ -498,17 +496,14 @@ main{position:relative}
 <!-- 05 PART 01 -->
 <section class="slide part l" id="exec" data-label="EXECUTION">
   <div class="inner">
-    <div class="img endc"><img src="assets/endcard-v.jpg" alt="Murror end card: Feel connected"></div>
+    <div class="img endc"><video src="assets/endcard-v.mp4" poster="assets/endcard-v.jpg" aria-label="Murror end card: Feel connected" muted loop playsinline autoplay preload="auto"></video></div>
     <div class="txt">
       <div class="pn rise"><small>Part.</small><strong>01</strong></div>
-      <p class="micro lbl rise">Execution<span>I make the film</span></p>
       <h2 class="b rise">Feel connected.</h2>
       <p class="small rise">Launch films and story videos for the Murror 2.0 launch. The brief: make people feel the pull to reach out to someone they already love.</p>
       <dl class="facts rise2">
         <div><dt>Role</dt><dd>Concept, script, direction, edit</dd></div>
-        <div><dt>Year</dt><dd>2026</dd></div>
-        <div class="w"><dt>Team</dt><dd>Mona, art direction and design kit. Khanh, product and research. Astro, founder.</dd></div>
-      </dl>
+        <div><dt>Year</dt><dd>2026</dd></div>      </dl>
     </div>
     <span class="blk" style="right:calc(var(--side) + 30px);bottom:calc(var(--bot) + 6px)"></span>
   </div>
@@ -519,7 +514,6 @@ main{position:relative}
   <div class="pin" id="fanPin">
     <div class="inner">
       <div class="fan-txt">
-        <p class="micro">Part. 01<span>What I made</span></p>
         <h2 class="b">What I made.</h2>
         <div class="fmt">
           <div class="on" data-k="v"><strong>9:16</strong><span>Story videos</span></div>
@@ -527,14 +521,14 @@ main{position:relative}
         </div>
       </div>
       <div class="fan v on" id="fanV">
-        <div class="fc"><video src="assets/v-busy.mp4" poster="assets/v-busy.jpg" muted loop playsinline preload="metadata"></video></div>
-        <div class="fc"><video src="assets/v-tomorrow.mp4" poster="assets/v-tomorrow.jpg" muted loop playsinline preload="metadata"></video></div>
-        <div class="fc"><video src="assets/v-wayin.mp4" poster="assets/v-wayin.jpg" muted loop playsinline preload="metadata"></video></div>
-        <div class="fc"><video src="assets/v-words.mp4" poster="assets/v-words.jpg" muted loop playsinline preload="metadata"></video></div>
+        <div class="fc" data-full="assets/full/v-busy.mp4" role="button" tabindex="0" aria-label="Play with sound"><video src="assets/v-busy.mp4" poster="assets/v-busy.jpg" muted loop playsinline preload="metadata"></video></div>
+        <div class="fc" data-full="assets/full/v-tomorrow.mp4" role="button" tabindex="0" aria-label="Play with sound"><video src="assets/v-tomorrow.mp4" poster="assets/v-tomorrow.jpg" muted loop playsinline preload="metadata"></video></div>
+        <div class="fc" data-full="assets/full/v-wayin.mp4" role="button" tabindex="0" aria-label="Play with sound"><video src="assets/v-wayin.mp4" poster="assets/v-wayin.jpg" muted loop playsinline preload="metadata"></video></div>
+        <div class="fc" data-full="assets/full/v-words.mp4" role="button" tabindex="0" aria-label="Play with sound"><video src="assets/v-words.mp4" poster="assets/v-words.jpg" muted loop playsinline preload="metadata"></video></div>
       </div>
       <div class="fan h" id="fanH">
-        <div class="fc"><video src="assets/h-understood.mp4" poster="assets/h-understood.jpg" muted loop playsinline preload="metadata"></video></div>
-        <div class="fc"><video src="assets/h-blender.mp4" poster="assets/h-blender.jpg" muted loop playsinline preload="metadata"></video></div>
+        <div class="fc" data-full="assets/full/h-understood.mp4" role="button" tabindex="0" aria-label="Play with sound"><video src="assets/h-understood.mp4" poster="assets/h-understood.jpg" muted loop playsinline preload="metadata"></video></div>
+        <div class="fc" data-full="assets/full/h-blender.mp4" role="button" tabindex="0" aria-label="Play with sound"><video src="assets/h-blender.mp4" poster="assets/h-blender.jpg" muted loop playsinline preload="metadata"></video></div>
       </div>
     </div>
   </div>
@@ -544,14 +538,13 @@ main{position:relative}
 <section class="slide part r overlap s-dir" id="dir" data-label="DIRECTION">
   <div class="inner">
     <div class="txt">
-      <p class="micro rise">Part. 02</p>
       <h2 class="huge b up rise">Direction</h2>
       <p class="lead2 rise">“I set how the story looks and moves.”</p>
       <div class="prin rise2">
-        <div><h4>A story language</h4><p>Far camera, six shots, two close details, the last shot wide. One grade per video.</p></div>
-        <div><h4>A motion language</h4><p>Orbits, phones with the real app, quiet night skies. One system for every film.</p></div>
-        <div><h4>Storyboard first</h4><p>The team reviews a still storyboard before anything is rendered.</p></div>
-        <div><h4>Options, not opinions</h4><p>Three film directions side by side, each with its trade-off, so the team chose fast.</p></div>
+        <div><h4>Brand feeling</h4><p>One feeling leads every piece: the pull to reach out to someone you already love.</p></div>
+        <div><h4>Visual language</h4><p>Far camera, a small figure in a wide space. Six shots, the last one always wide. One grade per film.</p></div>
+        <div><h4>Motion and sound</h4><p>Orbits, phones with the real app, quiet night skies. Soft piano that peaks into the ending.</p></div>
+        <div><h4>Guardrails</h4><p>A still storyboard is reviewed before anything is rendered. One look on every channel.</p></div>
       </div>
     </div>
     <div class="img pile" id="pile">
@@ -575,7 +568,6 @@ main{position:relative}
 <section class="slide s-lead2" id="lead" data-label="LEADERSHIP">
   <div class="inner">
     <div class="lead-c">
-      <p class="micro"><span class="cv" style="color:inherit">Part. 03</span></p>
       <h2 class="huge b up"><span class="cv">L</span><span class="cv">E</span><span class="cv">A</span><span class="cv">D</span><span class="cv">E</span><span class="cv">R</span><span class="cv">S</span><span class="cv">H</span><span class="cv">I</span><span class="cv">P</span></h2>
       <p class="lead2"><span class="cv">“I</span> <span class="cv">get</span> <span class="cv">the</span> <span class="cv">whole</span> <span class="cv">team</span> <span class="cv">telling</span> <span class="cv">one</span> <span class="cv">story.”</span></p>
       <p class="small lead-p"><span class="cv">Murror</span> <span class="cv">runs</span> <span class="cv">design</span> <span class="cv">sprints</span> <span class="cv">with</span> <span class="cv">the</span> <span class="cv">whole</span> <span class="cv">team.</span> <span class="cv">In</span> <span class="cv">the</span> <span class="cv">second</span> <span class="cv">sprint</span> <span class="cv">I</span> <span class="cv">led</span> <span class="cv">storytelling</span> <span class="cv">for</span> <span class="cv">the</span> <span class="cv">theme</span> <span class="cv">“Understand</span> <span class="cv">Murror</span> <span class="cv">in</span> <span class="cv">seconds”,</span> <span class="cv">so</span> <span class="cv">everyone</span> <span class="cv">tells</span> <span class="cv">the</span> <span class="cv">same</span> <span class="cv">story.</span></p>
@@ -588,8 +580,7 @@ main{position:relative}
 <section class="slide s-index" id="index" data-label="INDEX">
   <div class="inner">
     <div class="l rise">
-      <p class="micro">Experience</p>
-      <h2 class="b up" style="margin-top:2vh">Index</h2>
+      <h2 class="b up">Index</h2>
     </div>
     <div class="table rise2">
       <div class="tr h"><span>Company</span><span>Role</span><span>Year</span></div>
@@ -629,6 +620,7 @@ main{position:relative}
 </section>
 
 </main>
+<div class="player" id="player" role="dialog" aria-modal="true" aria-label="Video player"><button class="x" id="playerX" type="button">Close ✕</button><video id="playerV" controls playsinline preload="none"></video></div>
 
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
 <script>
@@ -652,21 +644,35 @@ main{position:relative}
     } else if(!reduce){ v.play().catch(()=>{}); }
   });
 
-  /* full story film: muted by default, one tap for sound */
-  const snd=document.getElementById('snd');
-  snd.addEventListener('click',()=>{
-    const v=document.querySelector('#tPor video'); if(!v) return;
-    v.muted=!v.muted; if(!v.muted){v.currentTime=0; v.play().catch(()=>{});}
-    snd.textContent=v.muted?'Sound off':'Sound on';
-  });
-
   let lenis=null;
   if(!reduce && window.Lenis) lenis=new Lenis({lerp:.085,smoothWheel:true,wheelMultiplier:.9});
+
+  /* player: click any film to watch the full version alone, with sound */
+  const player=document.getElementById('player'), pv=document.getElementById('playerV');
+  let paused=[];
+  function openPlayer(src){
+    paused=[...document.querySelectorAll('main video')].filter(v=>!v.paused); paused.forEach(v=>v.pause());
+    pv.src=src; pv.muted=false; pv.currentTime=0; player.classList.add('on'); if(lenis) lenis.stop();
+    pv.play().catch(()=>{});
+  }
+  function closePlayer(){
+    if(!player.classList.contains('on')) return;
+    pv.pause(); pv.removeAttribute('src'); pv.load(); player.classList.remove('on'); if(lenis) lenis.start();
+    paused.forEach(v=>v.play().catch(()=>{})); paused=[];
+  }
+  document.querySelectorAll('[data-full]').forEach(el=>{
+    el.addEventListener('click',e=>{ if(el.id==='tPor' && !el.classList.contains('big')) return; e.preventDefault(); openPlayer(el.dataset.full); });
+    el.addEventListener('keydown',e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); openPlayer(el.dataset.full); } });
+  });
+  document.getElementById('playerX').addEventListener('click',closePlayer);
+  player.addEventListener('click',e=>{ if(e.target===player) closePlayer(); });
+  addEventListener('keydown',e=>{ if(e.key==='Escape') closePlayer(); });
+
   const docTop=el=>{let y=0;while(el){y+=el.offsetTop;el=el.offsetParent;}return y;};
   const stage=document.getElementById('top'), pin=document.getElementById('stagePin');
   function target(id){
     if(id==='top') return 0;
-    if(id==='about') return docTop(stage)+(stage.offsetHeight-innerHeight)*.45;
+    if(id==='about') return docTop(stage)+(stage.offsetHeight-innerHeight)*.6;
     const el=document.getElementById(id); return docTop(el);
   }
   document.querySelectorAll('[data-go]').forEach(a=>a.addEventListener('click',e=>{
@@ -695,8 +701,13 @@ main{position:relative}
   const made=document.getElementById('made');
   const fans=[document.getElementById('fanV'),document.getElementById('fanH')];
   const fmt=[...document.querySelectorAll('.fmt div')];
-  const fanCfg=[{step:17,r:1100,sw:1.2},{step:23,r:1300,sw:.45}];
+  const fanCfg=[{step:17,r:1100,sw:1.2},{vertical:true,gap:32,sw:.35}];
   function layFan(fan,cfg,center){
+    if(cfg.vertical){ /* 16:9: stacked, one above the other, drifting up with the scroll */
+      [...fan.children].forEach((c,i)=>{ const y=(i-center)*(c.offsetHeight+cfg.gap);
+        c.style.transform=`translate3d(0,${y}px,0)`; c.style.zIndex=10; c.style.opacity=1; });
+      return;
+    }
     [...fan.children].forEach((c,i)=>{
       const a=(i-center)*cfg.step, rad=a*Math.PI/180;
       const x=Math.sin(rad)*cfg.r, z=(Math.cos(rad)-1)*cfg.r;
@@ -739,16 +750,18 @@ main{position:relative}
   function frame(){
     const vh=innerHeight;
     const sr=stage.getBoundingClientRect(), span=stage.offsetHeight-vh, p=clamp(-sr.top/span);
-    const t=reduce?(p>.3?1:0):ease(clamp((p-(phone()?.06:.04))/(phone()?.6:.36)));
+    /* two beats: first the 01 travels home with the About text, then the film rises in */
+    const t=reduce?(p>.3?1:0):ease(clamp((p-(phone()?.04:.03))/(phone()?.34:.24)));
+    const tv=reduce?(p>.5?1:0):ease(clamp((p-(phone()?.42:.32))/(phone()?.3:.2)));
     tNum.style.transform=`translate(${lerp(0,sl.numB.x-sl.numA.x,t)}px,${lerp(0,sl.numB.y-sl.numA.y,t)}px) scale(${lerp(1,sl.numB.h/sl.numA.h,t)})`;
-    tPor.style.transform=`translate(${lerp(sl.porA.x,sl.porB.x,t)}px,${lerp(sl.porA.y,sl.porB.y,t)}px)`;
-    tPor.style.width=lerp(sl.porA.w,sl.porB.w,t)+'px'; tPor.style.height=lerp(sl.porA.h,sl.porB.h,t)+'px';
+    tPor.style.transform=`translate(${sl.porB.x}px,${sl.porB.y+lerp(vh*.55,0,tv)}px)`;
+    tPor.style.width=sl.porB.w+'px'; tPor.style.height=sl.porB.h+'px';
     const a=clamp(1-t*2.2), b=clamp((t-.45)*2.2);
     lA.style.opacity=a; lA.style.transform=`translateY(${-50*t}px)`;
     lB.style.opacity=b; lB.style.transform=`translateY(${(1-b)*40}px)`;
     lA.style.pointerEvents=a>.5?'auto':'none'; lB.style.pointerEvents=b>.5?'auto':'none';
 
-    tPor.style.opacity=clamp((t-.15)*3); tPor.classList.toggle("big",t>.9); tPor.style.zIndex=t>.9?6:2;
+    tPor.style.opacity=clamp(tv*1.6); tPor.classList.toggle("big",tv>.9); tPor.style.zIndex=tv>.9?6:2;
     fanFrame(); pileFx();
 
     for(let i=0;i<cards.length;i++){
