@@ -360,7 +360,8 @@ main{position:relative}
   .sb-grid2{grid-template-columns:1fr 1fr;margin-top:24px}
   .s-lead2 .lead-c{padding:40px 0}
   .kw{grid-template-columns:1fr 1fr;margin-top:24px;gap:12px}
-  .kc{padding:16px;border-radius:16px}
+  .kc{padding:16px;border-radius:16px;aspect-ratio:auto;min-height:230px;gap:14px}
+  .kc .q{font-size:13px;line-height:1.5}
   .kc b{font-size:15px}
   .hold{height:0}
   .part .txt{width:auto!important}
@@ -384,6 +385,12 @@ main{position:relative}
   .fan.h .fc{width:80vw;height:45vw}
   .part .img.sb{padding:24px var(--side)}
   .s-end .links{right:auto;left:20px;top:auto;bottom:80px}
+}
+@media (max-width:760px) and (max-height:720px){
+  #porB{height:26svh}
+  .lB .col{top:calc(150px + 26svh + 18px)}
+  .lB .col p.small{margin-top:8px}
+  .lB .lv{display:none}
 }
 @media (prefers-reduced-motion:reduce){
   .rise,.rise2{transform:none;opacity:1}
